@@ -1,0 +1,35 @@
+# Function to get a valid float price from the user
+def get_price():
+    while True:
+        try:
+            price = float(input("Enter the price: "))
+            return price
+        except ValueError:
+            print("Invalid input. Please enter a valid price.")
+
+# Function to get a valid integer quantity from the user
+def get_quantity():
+    while True:
+        try:
+            quantity = int(input("Enter the quantity: "))
+            return quantity
+        except ValueError:
+            print("Invalid input. Please enter a valid quantity.")
+
+# Main loop
+while True:
+    price = get_price()
+    quantity = get_quantity()
+
+    total = quantity * price
+
+    # Display the totals
+    print("\nTotal:")
+    print(f"Price: ${price:.2f}")
+    print(f"Quantity: {quantity}")
+    print(f"Total: ${total:.2f}")
+
+    # Prompt the user to enter another line item
+    user_input = input("Enter another line item? (y/n): ").lower()
+    if user_input != 'y':
+        break  # Exit the loop if user enters 'n'
